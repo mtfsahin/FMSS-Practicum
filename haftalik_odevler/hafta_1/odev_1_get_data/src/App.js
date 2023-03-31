@@ -37,7 +37,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     //sadece tek haneli rakam 1-9 arası alması için sınırlıyorum 0 da da uyarı verecektir 
-    if (!/^\d{1}[1-9][0-9]$/.test(inputValue)) {
+    if (!/^\d{1}$/.test(inputValue)) {
       setError("Lütfen sadece 1-9 arası rakam giriniz.");
       return;
     }
