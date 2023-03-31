@@ -20,7 +20,7 @@ async function getUserData(id) {
         return mergedData;
     } catch (error) {
         //olası hata durumlarını yakalamak için try catch kullandım
-        console.error("Bir şeyler ters gitti.", error);
+        console.error("getData fonksiyonunda bir hata gerçekleşti.", error);
         return null;
     }
 }

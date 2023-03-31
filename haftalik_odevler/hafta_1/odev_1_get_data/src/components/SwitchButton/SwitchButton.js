@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import "../SwitchButton/index.css";
+
+
 const SwitchButton = ({ customContainer, outerClass, switchButtonID, inputClass, onChange, disabled }) => {
     return (
         customContainer

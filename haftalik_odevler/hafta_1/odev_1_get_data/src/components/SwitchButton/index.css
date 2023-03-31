@@ -12,6 +12,7 @@
     height: 40px;
     background: grey;
     display: block;
+    margin-bottom: 15px;
     border-radius: 100px;
     position: relative;
 }
