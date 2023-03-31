@@ -1,0 +1,75 @@
+.App {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-family: 'Courier New', Courier, monospace;
+  /* Daha pürüssüz bir arka plan geçişi efekti için */
+  transition: background-color 0.5s ease;
+}
+
+  /* light mode için renkler*/
+#light{
+  background-color: #ffffff;
+  color: #000000;
+}
+  /* dark mode için renkler*/
+#dark{
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.text-s{
+  font-size: 16px;
+}
+
+.text-m{
+  font-size: 25px;
+}
+
+.text-l{
+  font-size: 36px;
+}
+/* buton style ı */
+.Switch input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.Switch label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 90px;
+  height: 40px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+.Switch label:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+.Switch input:checked+label {
+  background: #bada55;
+}
+
+.Switch input:checked+label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+.Switch label:active:after {
+  width: 80px;
+}
+
