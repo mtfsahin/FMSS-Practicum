@@ -7,3 +7,12 @@ Ekstra eklediklerim
 * Basit bir Renk değiştirme mode özelliği ekledim/br>
 * Kullanıcı girdilerine sınırlandırma getirildi 1-9 arası sadece rakam girişi/br>
 * Gelen veriler daha toplu şekilde gösterilmeye çalışıldı/br>
+
+<p align="center">
+  <img src="https://github.com/mtfsahin/FMSS-Practicum/blob/main/haftalik_odevler/hafta_1/odev_1_get_data/ss_1.png" alt="ss1" width="100%" style="max-width: 800px">
+</p>
+
+
+<p align="center">
+  <img src="https://github.com/mtfsahin/FMSS-Practicum/blob/main/haftalik_odevler/hafta_1/odev_1_get_data/ss_2.png" alt="ss1" width="100%" style="max-width: 800px">
+</p>
