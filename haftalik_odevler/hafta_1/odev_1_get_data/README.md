@@ -1,6 +1,8 @@
 <h1>İlk hafta ödevine getirdiğim çözüm</h1>
 Ödev içeriği => https://app.patika.dev/courses/react/odev1
 
+* Önizleme Linki = https://fmss-practicum-odev1.vercel.app/
+
 Ekstra eklediklerim 
 * Terminal çıktısı yerine UI arayüz yapıldı Responsive Değil*</br>
 * Bir SwitchButton Componenti yazıp projeye dahil ettim/br>
