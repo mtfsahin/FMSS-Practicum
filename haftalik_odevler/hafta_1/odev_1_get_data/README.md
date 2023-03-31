@@ -1,4 +1,4 @@
-İlk hafta ödevine getirdiğim çözüm
+<h1>İlk hafta ödevine getirdiğim çözüm</h1>
 Ödev içeriği => https://app.patika.dev/courses/react/odev1
 
 Ekstra eklediklerim 
