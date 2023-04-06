@@ -5,10 +5,11 @@ export const Layout = ({children}) => {
     return (
         <>
             <Head >
-                <title>Next dark mode example</title>
+                <title>To Do App</title>
+                <meta name="descripyion" content="Fmss Practicum Todo App"></meta>
             </Head>
-            <Header/>
             <div className="min-h-screen flex flex-col">
+                <Header/>
                 <main className="flex-grow">
                     {children}
                 </main>

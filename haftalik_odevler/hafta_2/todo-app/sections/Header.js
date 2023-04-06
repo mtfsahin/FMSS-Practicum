@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Button from '../components/Button';
+import { GiStripedSun } from "react-icons/gi";
 
 const Header = () => {
 
@@ -8,6 +10,14 @@ const Header = () => {
     { label: 'Home', path: '/' },
     { label: 'About', path: 'About' },
   ];
+
+  const renderThemeChanger = () => {
+    return (
+      <Button>
+        <GiStripedSun/>
+      </Button>
+    )
+  }
 
   return (
     <header className='h-16 flex items-center justify-between'>
@@ -20,7 +30,7 @@ const Header = () => {
           <Link key={i} href={nav.path} legacyBehavior><a id="link" className='text-chamois-950 hover:text-chamois-800'>{nav.label}</a></Link>
         ))}
       </ul>
-      <button >Icon</button>
+      {renderThemeChanger()}
 
     </header>
   )
