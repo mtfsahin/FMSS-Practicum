@@ -1,22 +1,45 @@
 import Link from 'next/link';
 import Button from '../components/Button';
 import { GiStripedSun } from "react-icons/gi";
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 const Header = () => {
 
+  const { systemTheme, theme, setTheme } = useTheme();
+
+  const currentTheme = theme === "system" ? systemTheme : theme;
+  const [mounted, setMounted] = useState(false);
   //Navigasyon dizisi oluşturuyorum
   //Created navigations array
   const navigations = [
     { label: 'Home', path: '/' },
-    { label: 'About', path: 'About' },
+    { label: 'About', path: 'about' },
   ];
 
+  useEffect(() => {
+    setMounted(true);
+  }, [])
+
   const renderThemeChanger = () => {
-    return (
-      <Button>
-        <GiStripedSun/>
-      </Button>
-    )
+
+    if (!mounted) return null;
+
+
+
+    if (currentTheme === "dark") {
+      return (
+        <Button onClick={() => setTheme('light')} className="bg-chamois-100">
+          <GiStripedSun />
+        </Button>
+      )
+    } else {
+      return (
+        <Button onClick={() => setTheme('dark')} className="bg-chamois-900">
+          <GiStripedSun />
+        </Button>
+      )
+    }
   }
 
   return (
@@ -24,7 +47,7 @@ const Header = () => {
       <ul className='flex gap-4'>
         {/* Burada yukarıda tanımladığım navigaston dizisini mapliyorum */}
         {/* Mapping the navigations array */}
-        {navigations.map((nav,i) => (
+        {navigations.map((nav, i) => (
           //Link legacyBehavior kullanılma sebebi yeni sürümde doğrudan <a> etiketi kullanmayı geçersiz sayması
           // The reason for using legacyBehavior in this code is that the new version considers using the <a> tag directly invalid
           <Link key={i} href={nav.path} legacyBehavior><a id="link" className='text-chamois-950 hover:text-chamois-800'>{nav.label}</a></Link>

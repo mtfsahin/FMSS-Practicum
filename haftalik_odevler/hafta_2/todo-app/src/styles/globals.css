@@ -4,6 +4,7 @@
 
 @layer base {
     body{
-        @apply max-w-2xl mx-auto px-4 bg-chamois-200
+        @apply max-w-2xl mx-auto px-4 ;
+        @apply dark:bg-chamois-200 dark:text-chamois-900 bg-comet-500 text-comet-950
     }
 }

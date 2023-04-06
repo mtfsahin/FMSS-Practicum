@@ -1,4 +1,4 @@
-import Todo from "../../sections/Todo"
+import Todo from "../sections/Todo"
 export default function Home() {
   return (
     <>
