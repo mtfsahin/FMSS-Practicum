@@ -2,7 +2,7 @@ import TodoItem from "./TodoItems";
 
 const TodoList = ({ todos, toggleCompleted, deleteTodo }) => {
     return (
-        <div>
+        <div className="todo-list h-64 overflow-y-auto">
             {todos.map((todo) => (
                 <TodoItem
                     key={todo.id}
@@ -15,5 +15,5 @@ const TodoList = ({ todos, toggleCompleted, deleteTodo }) => {
     );
 };
 
-
 export default TodoList;
+

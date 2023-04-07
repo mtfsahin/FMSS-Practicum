@@ -14,7 +14,7 @@ const TodoForm = ({ onAdd }) => {
         <form className="flex gap-4" onSubmit={handleSubmit}>
             <input
                 type="text"
-                className="border-gray-400 border rounded-md py-1 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 flex-grow"
+                className="border-gray-400 border text- rounded-md py-1 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 flex-grow"
                 placeholder="Add new task..."
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
