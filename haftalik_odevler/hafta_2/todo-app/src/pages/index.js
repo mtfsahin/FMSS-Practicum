@@ -2,7 +2,9 @@ import Todo from "../sections/Todo"
 export default function Home() {
   return (
     <>
-    <Todo></Todo>
+    <div className="p-1">
+    <Todo/>
+    </div>
     </>
   )
 }

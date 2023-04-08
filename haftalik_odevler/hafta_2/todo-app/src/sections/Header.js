@@ -29,13 +29,13 @@ const Header = () => {
 
     if (currentTheme === "dark") {
       return (
-        <Button onClick={() => setTheme('light')} className="bg-chamois-100">
-          <GiStripedSun />
+        <Button onClick={() => setTheme('light')} className="bg-bracken-900">
+          <GiStripedSun style={{color:"white"}} />
         </Button>
       )
     } else {
       return (
-        <Button onClick={() => setTheme('dark')} className="bg-chamois-900">
+        <Button onClick={() => setTheme('dark')} className="bg-comet-100">
           <GiStripedSun />
         </Button>
       )
@@ -50,7 +50,7 @@ const Header = () => {
         {navigations.map((nav, i) => (
           //Link legacyBehavior kullanılma sebebi yeni sürümde doğrudan <a> etiketi kullanmayı geçersiz sayması
           // The reason for using legacyBehavior in this code is that the new version considers using the <a> tag directly invalid
-          <Link key={i} href={nav.path} legacyBehavior><a id="link" className='text-chamois-950 hover:text-chamois-800'>{nav.label}</a></Link>
+          <Link key={i} href={nav.path} legacyBehavior><a id="link" className='text-comet-100 dark:text-comet-800 hover:text-cherokee-200 dark:hover:text-cherokee-800'>{nav.label}</a></Link>
         ))}
       </ul>
       {renderThemeChanger()}

@@ -1,6 +1,6 @@
 const About = () => {
     return (
-        <div className="text-center text-chamois-950 font-semibold mt-20">about</div>
+        <div className="text-center text-comet-100 dark:text-comet-800 font-semibold mt-20">FMSS Practicum Week-2-Todo app study</div>
     )
 }
 export default About

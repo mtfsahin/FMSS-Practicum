@@ -5,7 +5,7 @@ const TodoItem = ({ todo, toggleCompleted, deleteTodo }) => {
     const { id, text, completed } = todo;
 
     return (
-        <div className="flex items-center py-2">
+        <div className="flex items-center py-2 pl-2 border-b-1 border-l-2  pr-2">
             {completed ? (
                 <FaCheckCircle
                     className="text-chamois-950 mr-2 cursor-pointer"
@@ -17,10 +17,9 @@ const TodoItem = ({ todo, toggleCompleted, deleteTodo }) => {
                     onClick={() => toggleCompleted(id)}
                 />
             )}
-            <p
-                className={`text-chamois-950 ${completed && 'line-through'}`}
-            >
-                {text}
+            {/* Text uzunluğu 30 karakteri geçince ... işareti ile devam etmesini sağladım */}
+            <p className={`text-chamois-950 ${completed && 'line-through'}`}>
+                {text.length > 30 ? text.substr(0, 30) + "..." : text}
             </p>
 
             <FaTrash
