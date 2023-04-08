@@ -7,9 +7,9 @@ import { useEffect, useState } from 'react';
 const Header = () => {
 
   const { systemTheme, theme, setTheme } = useTheme();
-
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [mounted, setMounted] = useState(false);
+
   //Navigasyon dizisi oluşturuyorum
   //Created navigations array
   const navigations = [
@@ -21,12 +21,12 @@ const Header = () => {
     setMounted(true);
   }, [])
 
+  //Dark mode ve light mode arası geçiş
+  //Change dark mode && light mode
   const renderThemeChanger = () => {
 
     if (!mounted) return null;
-
-
-
+    
     if (currentTheme === "dark") {
       return (
         <Button onClick={() => setTheme('light')} className="bg-bracken-900">

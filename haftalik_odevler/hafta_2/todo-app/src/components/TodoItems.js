@@ -2,6 +2,9 @@ import React from 'react';
 import { FaRegCircle, FaCheckCircle, FaTrash } from 'react-icons/fa';
 
 const TodoItem = ({ todo, toggleCompleted, deleteTodo }) => {
+
+    //Bu componentte her görev için görsel bir item oluşturuyoruz
+    //in this component we're creating a visual item
     const { id, text, completed } = todo;
 
     return (

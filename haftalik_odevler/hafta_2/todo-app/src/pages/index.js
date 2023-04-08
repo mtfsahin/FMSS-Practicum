@@ -3,7 +3,9 @@ export default function Home() {
   return (
     <>
     <div className="p-1">
-    <Todo/>
+      {/* todo componentini çağırıyorum */}
+      {/* call todo component */}
+      <Todo/>
     </div>
     </>
   )

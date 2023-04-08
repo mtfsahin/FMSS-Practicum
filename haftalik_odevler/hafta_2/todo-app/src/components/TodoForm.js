@@ -4,17 +4,21 @@ const TodoForm = ({ onAdd }) => {
     const [inputValue, setInputValue] = useState("");
     const [empytValue, setEmtyValue] = useState("");
 
-
+    //Form için hanfle oluşturuyorum
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        //Boş değer girildiği zaman empty value ye textteki yazıyı set editorum
+        //when an empty , set text
         if (inputValue.trim() === "") {
             setEmtyValue("Please enter a todo item.");
             return;
         }
-
+        
         onAdd(inputValue.trim());
         setInputValue("");
+        //Boş değilse boş değer set ediyorum
+        //when an empy, set empty value
         setEmtyValue("");
     };
 
@@ -35,6 +39,8 @@ const TodoForm = ({ onAdd }) => {
                     Add Todo
                 </button>
             </form>
+            {/* Boş değer girilirse uyarı gelir*/}
+            {/* if an emty value enterd, print text  */}
             {empytValue && <div className="flex justify-center text-geraldine-700 mt-1">{empytValue}</div>}
         </div>
     );

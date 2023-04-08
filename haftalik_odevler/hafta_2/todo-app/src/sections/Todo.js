@@ -4,15 +4,16 @@ import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
 import { IoMdClose, IoIosSquareOutline } from "react-icons/io"
 
-
-
 const Todo = () => {
+
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
-  const [completedCount, setCompletedCount] = useState(0);
+  //statik olarak 2 tane true verdiğim için değer 2
+  //i statically set 2 todos true, the value 2
+  const [completedCount, setCompletedCount] = useState(2);
 
 
-  // 3 statik todo ekleme
+  //3 static todo
   const initialTodos = [
     { id: Math.random(), text: "Complate Fmss Practicum", completed: false },
     { id: Math.random(), text: "Learn React", completed: true },
@@ -21,21 +22,25 @@ const Todo = () => {
     { id: Math.random(), text: "Learn Next", completed: false },
     { id: Math.random(), text: "Read a book", completed: false },
     { id: Math.random(), text: "Watch a movie", completed: false },
-
-
   ];
 
-  // sayfa yüklendiğinde statik todoları yükle
+  //sayfa yüklendiğinde statik todoları yükle
+  //load the static todos when the page is loaded
   useState(() => {
     setTodos(initialTodos);
   }, []);
 
-
+  //todo ekliyoruz,3 değişkeni car id, text ve compteted durumu
+  //adding todo, have 3 variable id, text , compteted durumu
   const addTodo = (todoText) => {
     const newTodo = { id: Math.random(), text: todoText, completed: false };
+    //eskiler de gelsin diye başına ...todos ekliyoruz
+    //add ...todos at tge beginning to include old todos
     setTodos([...todos, newTodo]);
   };
 
+  //todo silme fonsksiyonu
+  //delete todo function
   const deleteTodo = (id) => {
     const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
@@ -44,6 +49,10 @@ const Todo = () => {
     }
   };
 
+  //Todo tamamlandı olaak işaretlebirse işaretlenen todoyu bulur
+  //ardıbdab değerini true yapar ve completedTodo değerini 1 arttırır
+  //If a todo is marked as completed, we find the completed todo, 
+  //set true complated value and increment the 'completedTodo' value 1
   const toggleCompleted = (id) => {
     const updatedTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
@@ -57,12 +66,16 @@ const Todo = () => {
     }
   };
 
+  //filter ile tamamlananları seçer ve listeden count ı 0 yapar
+  //use filter to select the completed todos and set the count in the list to 0
   const clearCompleted = () => {
     const newTodos = todos.filter((todo) => !todo.completed);
     setTodos(newTodos);
     setCompletedCount(0);
   };
 
+  //todos arrayini, filtre durumuna göre filtreliyoruz ve sonucu filteredTodos arrayine atıyoruz
+  //filtering the 'todos' array ans result to the 'filteredTodos' array
   const filteredTodos = todos.filter((todo) => {
     if (filter === "all") {
       return true;
@@ -108,8 +121,8 @@ const Todo = () => {
               onClick={() => setFilter("all")}
               selected={filter === "all"}
               className={`px-3 py-1 mr-1 mb-1 text-xs font-bold rounded-none ${filter === "all"
-                  ? "text-silver-tree-800 bg-silver-tree-200"
-                  : ""
+                ? "text-silver-tree-800 bg-silver-tree-200"
+                : ""
                 }`}
             >
               All
@@ -118,8 +131,8 @@ const Todo = () => {
               onClick={() => setFilter("active")}
               selected={filter === "active"}
               className={`px-3 py-1 mr-1 mb-1 text-xs font-bold rounded-none ${filter === "active"
-                  ? "text-silver-tree-800 bg-silver-tree-200"
-                  : ""
+                ? "text-silver-tree-800 bg-silver-tree-200"
+                : ""
                 }`}
             >
               Active
@@ -128,8 +141,8 @@ const Todo = () => {
               onClick={() => setFilter("completed")}
               selected={filter === "completed"}
               className={`px-3 py-1 mr-1 mb-1 text-xs font-bold rounded-none ${filter === "completed"
-                  ? "text-silver-tree-800 bg-silver-tree-200"
-                  : ""
+                ? "text-silver-tree-800 bg-silver-tree-200"
+                : ""
                 }`}
             >
               Completed

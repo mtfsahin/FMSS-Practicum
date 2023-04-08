@@ -1,5 +1,7 @@
 import Link from "next/link"
 
+// linkler için bir navigations dizisi oluşturuyoruö
+// create a navigations list for 
 const navigations = [
     { label: 'Github', url: 'https://github.com/mtfsahin' },
     { label: 'Linkedin', url: 'https://www.linkedin.com/in/mustafa-sahin-dev/' },
