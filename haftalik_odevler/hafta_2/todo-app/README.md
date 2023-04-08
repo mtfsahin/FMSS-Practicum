@@ -11,16 +11,16 @@
 * I did a responsive study
 
 <p align="center">
-  <img src="https://github.com/mtfsahin/FMSS-Practicum/edit/main/haftalik_odevler/hafta_2/todo-app/1.png" alt="ss1" width="100%" style="max-width: 800px">
+  <img src="https://github.com/mtfsahin/FMSS-Practicum/blob/main/haftalik_odevler/hafta_2/todo-app/1.png" alt="1" width="100%" style="max-width: 800px">
 </p>
 
 
 <p align="center">
-  <img src="https://github.com/mtfsahin/FMSS-Practicum/edit/main/haftalik_odevler/hafta_2/todo-app/2.png" alt="ss1" width="100%" style="max-width: 800px">
+  <img src="https://github.com/mtfsahin/FMSS-Practicum/blob/main/haftalik_odevler/hafta_2/todo-app/2.png" alt="2" width="100%" style="max-width: 800px">
 </p>
 
 
 <p align="center">
-  <img src="https://github.com/mtfsahin/FMSS-Practicum/edit/main/haftalik_odevler/hafta_2/todo-app/3.png" alt="ss1" width="100%" style="max-width: 800px">
+  <img src="https://github.com/mtfsahin/FMSS-Practicum/blob/main/haftalik_odevler/hafta_2/todo-app/3.png" alt="3" width="100%" style="max-width: 800px">
 </p>
 
