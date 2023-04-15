@@ -9,6 +9,9 @@ const WeatherContext = createContext();
 //Create a provider because i will keep states weatherData , setWeatherDate 
 export function WeatherProvider({ children, selectedCity: initialSelectedCity, units: initialUnits, lang: initialLang }) {
 
+    //API_KEY gizledim
+    //Hide API_KEY
+    const apiKey = process.env.NEXT_PUBLIC_API_KEY;
     //Hava durumu bilgisinin tutulması ve değiştirilmesi için kullanılacak stateler
     const [weatherData, setWeatherData] = useState(null);
     const [dailyWeatherData, setDailyWeatherData] = useState(null);
@@ -27,7 +30,8 @@ export function WeatherProvider({ children, selectedCity: initialSelectedCity, u
             navigator.geolocation.getCurrentPosition(
                 async position => {
                     const { latitude, longitude } = position.coords;
-                    const apiKey = "1689a5fee00c14519d8e643f2a55fe6d";
+                    // !! Burada bir sorun var env dosyasından alınca çalışmıyor düzelt
+                    
                     const { data } = await axios.get(
                         `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&lang=${lang}&appid=${apiKey}`
                     );
@@ -48,8 +52,6 @@ export function WeatherProvider({ children, selectedCity: initialSelectedCity, u
     useEffect(() => {
         if (!selectedCity) return;
         const fetchData = async () => {
-            // !! Burada bir sorun var env dosyasından alınca çalışmıyor düzelt
-            const apiKey = "1689a5fee00c14519d8e643f2a55fe6d";
             const { data } = await axios.get(
                 `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&units=${units}&lang=${lang}&appid=${apiKey}`
             );
