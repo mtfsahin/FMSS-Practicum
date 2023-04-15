@@ -14,16 +14,18 @@ export default function Weather() {
 
         <div className="flex flex-col items-center justify-center w-screen min-h-screen text-gray-700 p-10 bg-indigo-800 ">
 
-            <div className='w-full max-w-lg bg-white p-3 rounded-xl shadow-lg ring-8 ring-white ring-opacity-40'>
+            <div className='w-full max-w-lg bg-white p-3 rounded-xl ring-8 ring-white ring-opacity-40 '>
                 <div className="flex flex-row justify-between">
 
-                    <div className="w-full max-w-lg bg-indigo-100 p-6 rounded-xl ring-8 ring-white ring-opacity-40 mr-2">
+                    <div className="w-full max-w-lg bg-blue-100 p-6 rounded-xl ring-8 ring-white ring-opacity-40 mr-2 shadow-lg">
                         {/* Şehir bilgisini ayarlıyoruz */}
                         {/* Set City data */}
+                        <div className='flex mb-2 text-xs underline'>Şehir seçiniz:</div>
                         <CitySelector setSelectedCity={setSelectedCity} />
                         {currentWeatherData ? (
                             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 md:grid-cols-2 md:gap-8">
                                 <div className="flex justify-center items-center">
+                                    {/* API nin sunduğu resimleri kullanıyorım */}
                                     <img
                                         src={`https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}@4x.png`}
                                         alt="Hava Durumu"
@@ -36,7 +38,7 @@ export default function Weather() {
                                     </span>
                                     <span className="text-lg font-semibold text-gray-500">{currentWeatherData.name}</span>
                                     <div className="flex flex-col justify-center items-center">
-                                        <span className="text-sm font-medium">Hava durumu</span>
+                                        <span className="text-sm font-medium underline">Weather </span>
                                         <span className="text-xs text-gray-500">{(currentWeatherData.weather[0].description.toUpperCase())}</span>
                                     </div>
                                 </div>
@@ -50,29 +52,25 @@ export default function Weather() {
                             </div>
                         )}
 
-
-
-
-
                     </div>
 
-                    <div className=" bg-indigo-100 p-5 rounded-xl ring-8 ring-white ring-opacity-40 flex justify-center">
+                    <div className=" bg-indigo-100 p-5 rounded-xl ring-8 ring-white  ring-opacity-40 flex justify-center">
                         {currentWeatherData ? (
                             <div className="grid grid-cols-1 gap-4 mt-4">
                                 <div className="flex flex-col justify-center items-center">
-                                    <div className="text-xs font-medium">Rüzgar</div>
+                                    <div className="text-xs font-medium underline">Rüzgar</div>
                                     <div className="text-xs text-gray-500">{currentWeatherData.wind.speed}</div>
                                     <div className="text-xs text-gray-500">m/s</div>
 
                                 </div>
                                 <div className="flex flex-col justify-center items-center">
-                                    <div className="text-xs font-medium">Nem</div>
+                                    <div className="text-xs font-medium underline">Nem</div>
                                     <div className="text-xs text-gray-500">{currentWeatherData.main.humidity}</div>
                                     <div className="text-xs text-gray-500">%</div>
 
                                 </div>
                                 <div className="flex flex-col justify-center items-center">
-                                    <div className="text-xs font-medium">Görüş</div>
+                                    <div className="text-xs font-medium underline">Görüş</div>
                                     <div className="text-xs text-gray-500">{Math.round((currentWeatherData.visibility) / 100) / 10}</div>
                                     <div className="text-xs text-gray-500">km</div>
 
@@ -90,7 +88,7 @@ export default function Weather() {
 
 
 
-            <div className='w-full max-w-lg bg-white p-3 rounded-xl shadow-lg ring-8 ring-white ring-opacity-40 mt-10'>
+            <div className='w-full max-w-lg bg-white p-3 rounded-xl shadow-lg ring-8 ring-white ring-opacity-40 mt-8'>
                 <div className="flex overflow-x-scroll space-x-4">
                     {dailyWeatherData ? (
                         dailyWeatherData.list
@@ -102,7 +100,7 @@ export default function Weather() {
 
                                     <div className="flex justify-between items-center">
                                         <div className="flex flex-col rounded p-2 max-w-xs">
-                                            <div className="text-sm text-gray-500">{new Date(data.dt * 1000).toLocaleDateString("tr-TR")}</div>
+                                            <div className="text-sm text-gray-500 underline">{new Date(data.dt * 1000).toLocaleDateString("tr-TR")}</div>
                                             <div className='h-8'>
                                                 <div className="font-bold text-xs ">{(data.weather[0].description).toUpperCase()}</div>
                                             </div>
@@ -121,30 +119,32 @@ export default function Weather() {
                                                         <span className="text-sm">
                                                             <i className="far fa-long-arrow-up" />
                                                         </span>
-                                                        <span className="text-sm font-light text-gray-500">{parseInt(data.main.feels_like)}°C</span>
+                                                        <span className="text-xs font-light text-gray-500">Min(</span>
+                                                        <span className="text-sm font-light text-gray-500">{parseInt(data.main.temp_min)}°C)</span>
                                                     </div>
                                                     <div>
                                                         <span className="text-sm">
                                                             <i className="far fa-long-arrow-down" />
                                                         </span>
-                                                        <span className="text-sm font-light text-gray-500">{parseInt(data.main.temp_max)}°C</span>
+                                                        <span className="text-xs font-light text-gray-500">Maks(</span>
+                                                        <span className="text-sm font-light text-gray-500">{parseInt(data.main.temp_max)}°C)</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="flex flex-row justify-between mt-2">
                                                 <div className="flex flex-col items-center">
-                                                    <div className="font-medium text-xs">Rüzgar</div>
-                                                    <div className="font-medium text-xs">(m/s)</div>
+                                                    <div className="font-medium text-xs ">Rüzgar</div>
+                                                    <div className="font-medium text-xs underline">(m/s)</div>
                                                     <div className="text-xs text-gray-500">{data.wind.speed}</div>
                                                 </div>
                                                 <div className="flex flex-col items-center">
                                                     <div className="font-medium text-xs">Nem</div>
-                                                    <div className="font-medium text-xs">(%)</div>
+                                                    <div className="font-medium text-xs underline">(%)</div>
                                                     <div className="text-xs text-gray-500"> {data.main.humidity}</div>
                                                 </div>
                                                 <div className="flex flex-col items-center">
                                                     <div className="font-medium text-xs">Görüş</div>
-                                                    <div className="font-medium text-xs">(km)</div>
+                                                    <div className="font-medium text-xs underline">(km)</div>
                                                     <div className="text-xs text-gray-500">{Math.round((data.visibility) / 100) / 10}</div>
                                                 </div>
                                             </div>

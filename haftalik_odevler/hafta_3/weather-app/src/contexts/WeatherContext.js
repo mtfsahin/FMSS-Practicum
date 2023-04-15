@@ -14,14 +14,36 @@ export function WeatherProvider({ children, selectedCity: initialSelectedCity, u
     const [dailyWeatherData, setDailyWeatherData] = useState(null);
     const [currentWeatherData, setCurrentWeatherData] = useState(null);
     //Seçike şehre göre veri güncellemesi sağlamak için
-    const [selectedCity, setSelectedCity] = useState("Istanbul");
+    const [selectedCity, setSelectedCity] = useState("");
     //Seçilen metric değerine göre veri güncellemesi sağlamak için
     const [units, setUnits] = useState('metric');
-     //Seçilen dile göre veri güncellemesi sağlamak için
+    //Seçilen dile göre veri güncellemesi sağlamak için
     const [lang, setLang] = useState('tr');
 
+
     useEffect(() => {
+        if (!selectedCity) {
+            navigator.geolocation.getCurrentPosition(
+                async position => {
+                    const { latitude, longitude } = position.coords;
+                    const apiKey = "1689a5fee00c14519d8e643f2a55fe6d";
+                    const { data } = await axios.get(
+                        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&lang=${lang}&appid=${apiKey}`
+                    );
+                    setSelectedCity(data.name);
+                },
+                error => {
+                    console.error(error);
+                    setSelectedCity("İstanbul")
+                }
+            );
+        }
+    }, [selectedCity, units, lang]);
+
+    useEffect(() => {
+        if (!selectedCity) return;
         const fetchData = async () => {
+            //API keyi gizliyorum
             const apiKey = "1689a5fee00c14519d8e643f2a55fe6d";
             const { data } = await axios.get(
                 `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&units=${units}&lang=${lang}&appid=${apiKey}`
