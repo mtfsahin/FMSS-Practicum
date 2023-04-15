@@ -80,8 +80,9 @@ export default function Weather() {
                 </div>
             </div>
 
-
+            
             <div className='w-full max-w-lg bg-white p-3 rounded-xl shadow-lg ring-8 ring-white ring-opacity-40 mt-8'>
+                <div className='flex justify-center mb-3 bg-neutral-200 rounded-xl text-gray-800'>Next 5 days</div>
                 <div className="flex overflow-x-scroll space-x-4">
                     {dailyWeatherData ? (
                         dailyWeatherData.list
