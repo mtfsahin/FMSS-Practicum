@@ -1,4 +1,4 @@
-import Weather from './weather'
+import Weather from '../sections/weather'
 
 
 export default function Home() {

@@ -48,7 +48,7 @@ export function WeatherProvider({ children, selectedCity: initialSelectedCity, u
     useEffect(() => {
         if (!selectedCity) return;
         const fetchData = async () => {
-            //API keyi gizliyorum
+            // !! Burada bir sorun var env dosyasından alınca çalışmıyor düzelt
             const apiKey = "1689a5fee00c14519d8e643f2a55fe6d";
             const { data } = await axios.get(
                 `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&units=${units}&lang=${lang}&appid=${apiKey}`

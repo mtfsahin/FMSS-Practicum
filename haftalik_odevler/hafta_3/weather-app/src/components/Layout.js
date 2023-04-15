@@ -10,7 +10,7 @@ export const Layout = ({children}) => {
                 <title>Weather App</title>
                 <meta name="description" content="Fmss Practicum Weather App"></meta>
             </Head>
-
+            
             <div className="min-h-screen flex flex-col">
                 {/* Header componentini cağırıdm*/}
                 {/* I called the Header component */}
