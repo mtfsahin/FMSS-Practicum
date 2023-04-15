@@ -55,21 +55,21 @@ export default function Weather() {
                         {currentWeatherData ? (
                             <div className="grid grid-cols-1 gap-4 mt-4">
                                 <div className="flex flex-col justify-center items-center">
-                                    <div className="text-xs font-medium underline">Wild</div>
+                                    <div className="text-xs font-medium ">Wild</div>
+                                    <div className="text-xs font-medium underline">(m/s)</div>
                                     <div className="text-xs text-gray-500">{currentWeatherData.wind.speed}</div>
-                                    <div className="text-xs text-gray-500">m/s</div>
 
                                 </div>
                                 <div className="flex flex-col justify-center items-center">
                                     <div className="text-xs font-medium underline">Humidity</div>
+                                    <div className="text-xs font-medium underline">(%)</div>
                                     <div className="text-xs text-gray-500">{currentWeatherData.main.humidity}</div>
-                                    <div className="text-xs text-gray-500">%</div>
 
                                 </div>
                                 <div className="flex flex-col justify-center items-center">
                                     <div className="text-xs font-medium underline">Visibility</div>
+                                    <div className="text-xs font-medium underline">(km)</div>
                                     <div className="text-xs text-gray-500">{Math.round((currentWeatherData.visibility) / 100) / 10}</div>
-                                    <div className="text-xs text-gray-500">km</div>
 
                                 </div>
                             </div>
