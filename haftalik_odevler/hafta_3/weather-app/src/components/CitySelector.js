@@ -40,7 +40,7 @@ function CitySelector(props) {
                     >
                         {/* Seçili konumu disabled value olarak set ediyorum */}
                         <option disabled value="">
-                            Seçili konum: {currentWeatherData.name}
+                            Selected city: {currentWeatherData.name}
                         </option>
                         {cities.map(city => (
                             <option key={city.id} value={city.name}>
