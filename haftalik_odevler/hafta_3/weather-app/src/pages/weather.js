@@ -8,70 +8,159 @@ export default function Weather() {
         currentWeatherData,
         setSelectedCity,
         units,
-        setUnits,
-        lang,
-        setLang,
     } = useContext(WeatherContext);
 
-
-    console.log("bugün", currentWeatherData);
-    console.log("7 günlük tahminler", dailyWeatherData);
-
-    const handleUnitChange = (e) => {
-        setUnits(e.target.value);
-    };
-
-    const handleLangChange = (e) => {
-        setLang(e.target.value);
-    };
-
     return (
-        <div>
-            <h2>Güncel Hava Durumu:</h2>
-            <div>
-                <label htmlFor="city">Şehir:</label>
-                <CitySelector setSelectedCity={setSelectedCity} />
 
-            </div>
-            <div>
-                <label htmlFor="unit">Birim:</label>
-                <select id="unit" value={units} onChange={handleUnitChange}>
-                    <option value="metric">Santigrat</option>
-                    <option value="imperial">Fahrenheit</option>
-                </select>
-            </div>
-            <div>
-                <label htmlFor="lang">Dil:</label>
-                <select id="lang" value={lang} onChange={handleLangChange}>
-                    <option value="tr">Türkçe</option>
-                    <option value="en">English</option>
-                </select>
-            </div>
-            {currentWeatherData ? (
-                <div>
-                    <h3>{currentWeatherData.name}</h3>
-                    <p>{currentWeatherData.weather[0].description}</p>
-                    <p>Sıcaklık: {currentWeatherData.main.temp} °C</p>
-                    <p>Nem: {currentWeatherData.main.humidity} %</p>
-                    <p>Rüzgar hızı: {currentWeatherData.wind.speed} m/s</p>
-                </div>
-            ) : (
-                <p>Loading...</p>
-            )}
-            <h2>7 Günlük Hava Tahmini:</h2>
-            {dailyWeatherData ? (
-                dailyWeatherData.list.map((data, index) => (
-                    <div key={index}>
-                        <h3>{new Date(data.dt * 1000).toLocaleDateString("tr-TR")}</h3>
-                        <p>{data.weather[0].description}</p>
-                        <p>Sıcaklık: {data.main.temp} °C</p>
-                        <p>Nem: {data.main.humidity} %</p>
-                        <p>Rüzgar hızı: {data.wind.speed} m/s</p>
+        <div className="flex flex-col items-center justify-center w-screen min-h-screen text-gray-700 p-10 bg-indigo-800 ">
+
+            <div className='w-full max-w-lg bg-white p-3 rounded-xl shadow-lg ring-8 ring-white ring-opacity-40'>
+                <div className="flex flex-row justify-between">
+
+                    <div className="w-full max-w-lg bg-indigo-100 p-6 rounded-xl ring-8 ring-white ring-opacity-40 mr-2">
+                        {/* Şehir bilgisini ayarlıyoruz */}
+                        {/* Set City data */}
+                        <CitySelector setSelectedCity={setSelectedCity} />
+                        {currentWeatherData ? (
+                            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 md:grid-cols-2 md:gap-8">
+                                <div className="flex justify-center items-center">
+                                    <img
+                                        src={`https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}@4x.png`}
+                                        alt="Hava Durumu"
+                                        className="w-24 md:w-32"
+                                    />
+                                </div>
+                                <div className="flex flex-col justify-center items-center">
+                                    <span className="text-4xl md:text-5xl font-bold">
+                                        {parseInt(currentWeatherData.main.temp)}&deg;{units === "metric" ? "C" : "F"}
+                                    </span>
+                                    <span className="text-lg font-semibold text-gray-500">{currentWeatherData.name}</span>
+                                    <div className="flex flex-col justify-center items-center">
+                                        <span className="text-sm font-medium">Hava durumu</span>
+                                        <span className="text-xs text-gray-500">{(currentWeatherData.weather[0].description.toUpperCase())}</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        ) : (
+                            <div className="text-center">
+                                <p className="text-xl font-bold mb-2">Loading...</p>
+                            </div>
+                        )}
+
+
+
+
+
                     </div>
-                ))
-            ) : (
-                <p>Loading...</p>
-            )}
+
+                    <div className=" bg-indigo-100 p-5 rounded-xl ring-8 ring-white ring-opacity-40 flex justify-center">
+                        {currentWeatherData ? (
+                            <div className="grid grid-cols-1 gap-4 mt-4">
+                                <div className="flex flex-col justify-center items-center">
+                                    <div className="text-xs font-medium">Rüzgar</div>
+                                    <div className="text-xs text-gray-500">{currentWeatherData.wind.speed}</div>
+                                    <div className="text-xs text-gray-500">m/s</div>
+
+                                </div>
+                                <div className="flex flex-col justify-center items-center">
+                                    <div className="text-xs font-medium">Nem</div>
+                                    <div className="text-xs text-gray-500">{currentWeatherData.main.humidity}</div>
+                                    <div className="text-xs text-gray-500">%</div>
+
+                                </div>
+                                <div className="flex flex-col justify-center items-center">
+                                    <div className="text-xs font-medium">Görüş</div>
+                                    <div className="text-xs text-gray-500">{Math.round((currentWeatherData.visibility) / 100) / 10}</div>
+                                    <div className="text-xs text-gray-500">km</div>
+
+                                </div>
+                            </div>
+                        ) : (
+                            <div>Loading...</div>
+                        )}
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+            <div className='w-full max-w-lg bg-white p-3 rounded-xl shadow-lg ring-8 ring-white ring-opacity-40 mt-10'>
+                <div className="flex overflow-x-scroll space-x-4">
+                    {dailyWeatherData ? (
+                        dailyWeatherData.list
+                            //Burada saat 12 olanları filtreledim
+                            //Filtered by weather time 12 o'clock
+                            .filter(data => new Date(data.dt * 1000).getHours() === 12)
+                            .map((data, index) => (
+                                <div key={index} className="bg-white rounded-md shadow-md p-2 w-48">
+
+                                    <div className="flex justify-between items-center">
+                                        <div className="flex flex-col rounded p-2 max-w-xs">
+                                            <div className="text-sm text-gray-500">{new Date(data.dt * 1000).toLocaleDateString("tr-TR")}</div>
+                                            <div className='h-8'>
+                                                <div className="font-bold text-xs ">{(data.weather[0].description).toUpperCase()}</div>
+                                            </div>
+                                            <div className="mt-2 text-4xl self-center inline-flex items-center justify-center rounded-lg text-indigo-400 h-16 w-16">
+                                                {/* API ın sağladığı fotoğrafları kullandım */}
+                                                <img
+                                                    src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                                                    alt="Hava Durumu"
+                                                    className=""
+                                                />
+                                            </div>
+                                            <div className="flex flex-row items-center justify-center mt-2">
+                                                <div className="font-medium text-4xl">{parseInt(data.main.temp)}°C</div>
+                                                <div className="flex flex-col items-center ml-2 text-xs">
+                                                    <div className="mt-1">
+                                                        <span className="text-sm">
+                                                            <i className="far fa-long-arrow-up" />
+                                                        </span>
+                                                        <span className="text-sm font-light text-gray-500">{parseInt(data.main.feels_like)}°C</span>
+                                                    </div>
+                                                    <div>
+                                                        <span className="text-sm">
+                                                            <i className="far fa-long-arrow-down" />
+                                                        </span>
+                                                        <span className="text-sm font-light text-gray-500">{parseInt(data.main.temp_max)}°C</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="flex flex-row justify-between mt-2">
+                                                <div className="flex flex-col items-center">
+                                                    <div className="font-medium text-xs">Rüzgar</div>
+                                                    <div className="font-medium text-xs">(m/s)</div>
+                                                    <div className="text-xs text-gray-500">{data.wind.speed}</div>
+                                                </div>
+                                                <div className="flex flex-col items-center">
+                                                    <div className="font-medium text-xs">Nem</div>
+                                                    <div className="font-medium text-xs">(%)</div>
+                                                    <div className="text-xs text-gray-500"> {data.main.humidity}</div>
+                                                </div>
+                                                <div className="flex flex-col items-center">
+                                                    <div className="font-medium text-xs">Görüş</div>
+                                                    <div className="font-medium text-xs">(km)</div>
+                                                    <div className="text-xs text-gray-500">{Math.round((data.visibility) / 100) / 10}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            ))
+                    ) : (
+                        <p>Loading...</p>
+                    )}
+
+                </div>
+            </div>
+
         </div>
+
     );
 }
