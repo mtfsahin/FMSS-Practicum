@@ -18,9 +18,10 @@ export function WeatherProvider({ children, selectedCity: initialSelectedCity, u
     //Seçilen metric değerine göre veri güncellemesi sağlamak için
     const [units, setUnits] = useState('metric');
     //Seçilen dile göre veri güncellemesi sağlamak için
-    const [lang, setLang] = useState('tr');
+    const [lang, setLang] = useState('en');
 
-
+    //Kullanıcıdan konum değerlerini alıyorum
+    //Give a location values at user
     useEffect(() => {
         if (!selectedCity) {
             navigator.geolocation.getCurrentPosition(
@@ -34,12 +35,16 @@ export function WeatherProvider({ children, selectedCity: initialSelectedCity, u
                 },
                 error => {
                     console.error(error);
+                    //Konum seçmezse İstanbulu set ediyorum
+                    //İf user not allow location, set Istanbul
                     setSelectedCity("İstanbul")
                 }
             );
         }
     }, [selectedCity, units, lang]);
 
+    //Kullanıcının mevcut konumu dışında farllı konumları da seçebilmesine imkan sağlıyorum
+    //User to select different locations other than the current location
     useEffect(() => {
         if (!selectedCity) return;
         const fetchData = async () => {

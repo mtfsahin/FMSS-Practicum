@@ -12,11 +12,9 @@ export default function Weather() {
 
     return (
 
-        <div className="flex flex-col items-center justify-center w-screen min-h-screen text-gray-700 p-10 bg-indigo-800 ">
-
+        <div className="flex flex-col items-center justify-center  text-gray-700 p-10 bg-indigo-800 ">
             <div className='w-full max-w-lg bg-white p-3 rounded-xl ring-8 ring-white ring-opacity-40 '>
                 <div className="flex flex-row justify-between">
-
                     <div className="w-full max-w-lg bg-blue-100 p-6 rounded-xl ring-8 ring-white ring-opacity-40 mr-2 shadow-lg">
                         {/* Şehir bilgisini ayarlıyoruz */}
                         {/* Set City data */}
@@ -53,7 +51,6 @@ export default function Weather() {
                         )}
 
                     </div>
-
                     <div className=" bg-indigo-100 p-5 rounded-xl ring-8 ring-white  ring-opacity-40 flex justify-center">
                         {currentWeatherData ? (
                             <div className="grid grid-cols-1 gap-4 mt-4">
@@ -80,12 +77,8 @@ export default function Weather() {
                             <div>Loading...</div>
                         )}
                     </div>
-
                 </div>
             </div>
-
-
-
 
 
             <div className='w-full max-w-lg bg-white p-3 rounded-xl shadow-lg ring-8 ring-white ring-opacity-40 mt-8'>
