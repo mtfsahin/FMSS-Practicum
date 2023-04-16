@@ -29,3 +29,15 @@ Priview link => https://weather-app-mtfsahin.vercel.app/
   <img src="https://github.com/mtfsahin/FMSS-Practicum/blob/main/haftalik_odevler/hafta_3/weather-app/3.png" alt="3" width="100%" style="max-width: 800px">
 </p>
 
+## How To Run
+
+Install
+---
+
+`npm install`
+
+
+Usage
+---
+
+`npm run dev`
