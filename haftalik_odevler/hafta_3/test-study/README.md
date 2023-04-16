@@ -1,9 +1,13 @@
-Emoji Search
+Emoji Search Test App
 ---
 
-Created with *create-react-app*. See the [full create-react-app guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+Week 3 - Study 4 - Test Study
 
+Test codes were written to the given source codes.
 
+<p align="center">
+  <img src="https://github.com/mtfsahin/FMSS-Practicum/blob/main/haftalik_odevler/hafta_3/test-study/1.png" alt="1" width="100%" style="max-width: 800px">
+</p>
 
 Install
 ---
