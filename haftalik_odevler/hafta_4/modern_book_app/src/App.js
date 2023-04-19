@@ -1,10 +1,17 @@
-import './App.css';
+import {Link, Outlet} from 'react-router-dom';
 
 function App() {
+
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div>
+      <nav className="bg-gray-100 flex gap-4">
+        <Link to="/"><span>Home Page</span></Link>
+        <Link to="/Books"><span>Books Page</span></Link>
+        <Link to="/About"><span>About Page</span></Link>
+      </nav>
+      {/* displays the content with Outlet */}
+      <Outlet></Outlet>
+    </div>
   );
 }
 
