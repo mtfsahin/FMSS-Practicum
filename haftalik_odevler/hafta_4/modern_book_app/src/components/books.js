@@ -3,9 +3,9 @@ import { Outlet } from 'react-router-dom'
 
 export default function books() {
     return (
-        <>
-        <div>books</div>
-        <Outlet></Outlet>
-        </>
+        <div>
+            <div>Books page</div>
+            <Outlet></Outlet>
+        </div>
     )
 }
