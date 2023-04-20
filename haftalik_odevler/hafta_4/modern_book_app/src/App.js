@@ -23,11 +23,16 @@ function App() {
           <Route path="/about" element={<About />} >
             <Route path='/about/detail' element={<div>About Detail</div>}></Route>
           </Route>
-
           <Route path="/books" element={<Books />} >
             <Route path='/books/details' element={<div>Detail books</div>}></Route>
           </Route>
-
+          
+          <Route path='*' element={
+            <main className='text-center'>
+              <p>There is nothing book.</p>
+            </main>
+          }>
+          </Route>
         </Route>
       </Routes>
     </div>
