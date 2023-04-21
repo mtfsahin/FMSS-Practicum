@@ -1,6 +1,5 @@
 import { Link, Outlet, } from 'react-router-dom';
 import SearchBox from './components/SearchBox';
-import Booklar from './components/booklar';
 import Routers from './routes/Routers';
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
       {/* created the routers I created as a component because I wanted it to look less complicated       */}
       <Routers />
       <SearchBox onSearch={(searchTerm) => console.log(searchTerm)} />
-      <Booklar />
     </div>
   );
 }
