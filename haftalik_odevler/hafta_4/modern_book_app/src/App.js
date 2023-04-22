@@ -1,5 +1,4 @@
 import { Link, Outlet, } from 'react-router-dom';
-import SearchBox from './components/SearchBox';
 import Routers from './routes/Routers';
 
 function App() {
@@ -9,7 +8,6 @@ function App() {
       {/* create nav using react router dom Link property */}
       <nav className="bg-gray-100 flex gap-4 p-5">
         <Link to="/"><span>Home</span></Link>
-        <Link to="/books"><span>Books</span></Link>
         <Link to="/about"><span>About</span></Link>
       </nav>
       
@@ -17,7 +15,6 @@ function App() {
       <Outlet/>
       {/* created the routers I created as a component because I wanted it to look less complicated       */}
       <Routers />
-      <SearchBox onSearch={(searchTerm) => console.log(searchTerm)} />
     </div>
   );
 }

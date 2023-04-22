@@ -8,11 +8,9 @@ export default function Details() {
     const { bookId } = useParams();
 
     useEffect(() => {
-        const book = books.find((book) => book.id === bookId);
+        const book = books.find((book) => book.selfLink === `https://www.googleapis.com/books/v1/volumes/${bookId}`);
         setBook(book);
     }, [books, bookId]);
-
-    console.log("Books",books)
 
     if (!book) {
         return <div className="flex justify-center mt-10">Kitap bulunamadı</div>;
@@ -20,7 +18,7 @@ export default function Details() {
 
     return (
         <div className="flex flex-col items-center bg-yellow-700 text-white mt-3 p-2">
-            <Link to="/books">Go back</Link>
+            <Link to="/">Go back</Link>
             <h1 className="text-3xl font-bold mb-2">{book.volumeInfo.title}</h1>
             {book.volumeInfo.authors && (
                 <p className="text-lg mb-4">
@@ -31,7 +29,7 @@ export default function Details() {
             {book.volumeInfo.imageLinks && (
                 <img
                     className="w-72 mb-4"
-                    src={book.volumeInfo.imageLinks.thumbnail}
+                    src={book.volumeInfo.imageLinks.thumbnail.replace("http://", "https://").replace("zoom=1", "zoom=2")}
                     alt={book.volumeInfo.title}
                 />
             )}

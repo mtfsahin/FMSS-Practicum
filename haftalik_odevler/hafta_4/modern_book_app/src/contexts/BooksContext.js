@@ -6,11 +6,14 @@ export const BooksContext = createContext();
 const BooksContextProvider = (props) => {
     const [books, setBooks] = useState([]);
 
-    const searchBooks = async (searchTerm) => {
+
+    const searchBooks = async (searchTerm,fiter) => {
         const response = await axios.get(
-            `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&filter=free-ebooks&key=AIzaSyC8aTE2SdPpyJX-INAXzGDze2DXNOneilA`
+            `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&filter=partial&maxResults=40&key=AIzaSyC8aTE2SdPpyJX-INAXzGDze2DXNOneilA`
         );
+
         setBooks(response.data.items);
+        
     };
 
     useEffect(() => {
