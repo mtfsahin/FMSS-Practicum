@@ -1,18 +1,14 @@
-import { Link, Outlet, } from 'react-router-dom';
+import { Outlet, } from 'react-router-dom';
 import Routers from './routes/Routers';
+import Navbar from './routes/Navbar';
 
 function App() {
 
   return (
     <div>
-      {/* create nav using react router dom Link property */}
-      <nav className="bg-gray-100 flex gap-4 p-5">
-        <Link to="/"><span>Home</span></Link>
-        <Link to="/about"><span>About</span></Link>
-      </nav>
-      
+      <Navbar/>
       {/* displays the content with Outlet using react router dom */}
-      <Outlet/>
+      <Outlet />
       {/* created the routers I created as a component because I wanted it to look less complicated       */}
       <Routers />
     </div>
