@@ -1,12 +1,10 @@
 # 4.Week study Book Search App
 # Priview link 
 
-***Priview link =>***
+***Priview link => https://fmss-book-app.vercel.app/***
 # Priview Image
 
-<p align="center">
-  <img src="" alt="1" width="100%" style="max-width: 800px">
-</p>
+![](https://github.com/mtfsahin/FMSS-Practicum/blob/main/haftalik_odevler/hafta_4/book_app/src/assets/gif.gif)
 
 # Description
 
