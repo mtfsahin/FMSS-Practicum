@@ -27,7 +27,7 @@ const TodoForm = ({ onAdd }) => {
             <form className="flex flex-col sm:flex-row gap-4" onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    className="bg-comet-950 text-cherokee-50 border rounded-md py-1 px-3 focus:outline-none focus:ring-2 focus:ring-geraldine-400 flex-grow"
+                    className="bg-comet-950 text-cherokee-50 border rounded-md py-1 px-3  flex-grow"
                     placeholder="Add new task..."
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}

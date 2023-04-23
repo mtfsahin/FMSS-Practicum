@@ -23,23 +23,25 @@ const SearchBox = () => {
 
 
     return (
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <input
-                type="text"
-                className="rounded-lg bg-slate-200 pl-3"
-                placeholder="Search a book"
-                value={searchText}
-                onChange={(e) => setSearchText(e.target.value)}
-                onKeyDown={handleSearch}
-            />
-            <button
-                className="ml-2 border-red-500 rounded-lg bg-red-800 border-2 p-1 text-sm"
-                onClick={handleSearch}
-            >
-                Search
-            </button>
+        <div className="flex-row">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <input
+                    type="text"
+                    className="rounded-lg bg-slate-200 p-3 "
+                    placeholder="Search a book"
+                    value={searchText}
+                    onChange={(e) => setSearchText(e.target.value)}
+                    onKeyDown={handleSearch}
+                />
+                <button
+                    className="bg-gray-200 hover:bg-gray-300 hover:border-gray-800 px-4 py-2 rounded-lg mr-2 border-dashed border-2 "
+                    onClick={handleSearch}
+                >
+                    Search
+                </button>
+            </div>
             {showWarning && (
-                <p className="text-red-500 text-sm mt-2">
+                <p className="flex justify-center text-red-500 text-sm mt-2 ">
                     Please enter a search term.
                 </p>
             )}
