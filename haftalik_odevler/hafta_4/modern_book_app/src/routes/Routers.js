@@ -1,6 +1,6 @@
-import About from '../components/about';
-import Details from '../components/details';
-import Home from '../components/home';
+import About from '../pages/about';
+import Details from '../components/DetailsComponent';
+import Home from '../pages/home';
 
 import { Routes, Route, } from 'react-router-dom'
 

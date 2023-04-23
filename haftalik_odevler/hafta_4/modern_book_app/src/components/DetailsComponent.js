@@ -50,23 +50,23 @@ export default function Details() {
                     )}
                 </div>
                 <div className="w-full md:w-3/5 mt-8 md:mt-0 pl-4">
-                    <h1 className="text-2xl md:text-4xl font-bold mb-2">
+                    <h1 className="text-xl md:text-4xl font-bold mb-2">
                         {book.volumeInfo.title}
                     </h1>
                     {book.volumeInfo.authors && (
-                        <p className="text-lg">
+                        <p className="text-sm">
                             <strong className="underline">Authors:</strong>{" "}
                             {book.volumeInfo.authors.map((author) => author + ", ")}
                         </p>
                     )}
                     {book.volumeInfo.publisher && (
-                        <p className="text-lg mb-6">
+                        <p className="text-sm mb-6">
                             <strong className="underline">Publisher:</strong>{" "}
                             {book.volumeInfo.publisher}
                         </p>
                     )}
                     {book.volumeInfo.description ? (
-                        <p className="text-lg mb-2">
+                        <p className="text-sm mb-2">
                             <strong className="underline">Description:</strong>{" "}
                             {book.volumeInfo.description}
                         </p>
